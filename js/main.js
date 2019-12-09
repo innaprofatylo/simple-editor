@@ -1,19 +1,17 @@
-;(function() {
 	'use strict';
 
-let editorText = document.querySelector('.editor-text');
-let editorField = document.querySelector('.editor-field');
+	let editorText = document.querySelector('.editor-text');
+	let editorField = document.querySelector('.editor-field');
 
 	editorField.hidden = true;
 
 	document.addEventListener('keydown', editorInit);
 
 	function editorInit(event) {
-		
 
 		if (event.keyCode == 69 && event.ctrlKey && editorField.hidden) {
 			event.preventDefault();
-			editorField.value = editorText.innerHTML.trim();
+			editorField.value = editorText.innerHTML;
 			editorText.hidden = true;
 			editorField.hidden = false;
 			editorField.focus();
@@ -28,9 +26,8 @@ let editorField = document.querySelector('.editor-field');
 
 		if (event.keyCode == 27 && !editorField.hidden) {
 			event.preventDefault();
-			editorText.innerHTML = editorField.value;
 			editorText.hidden = false;
 			editorField.hidden = true;
 		}
-	}
-	})();
+	
+};
